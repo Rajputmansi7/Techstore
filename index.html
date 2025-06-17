@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Product Catalog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+        </ul>
+    </nav>
+    
+    <button onclick="askAdminAccess()">🔒 Admin Login</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>🛍️ TechStore</h1>
+            <p>Discover amazing products with advanced filtering and sorting</p>
+        </div>
+
+        <div class="controls">
+            <div class="filter-group">
+                <label for="category-filter">Category</label>
+                <select id="category-filter">
+                    <option value="">All Categories</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Books">Books</option>
+                    <option value="Home">Home & Garden</option>
+                    <option value="Sports">Sports</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="sort-filter">Sort By</label>
+                <select id="sort-filter">
+                    <option value="name-asc">Name (A-Z)</option>
+                    <option value="name-desc">Name (Z-A)</option>
+                    <option value="price-asc">Price (Low to High)</option>
+                    <option value="price-desc">Price (High to Low)</option>
+                    <option value="rating-desc">Rating (High to Low)</option>
+                    <option value="rating-asc">Rating (Low to High)</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Price Range</label>
+                <div class="price-range">
+                    <input type="number" id="min-price" placeholder="Min" min="0">
+                    <span>to</span>
+                    <input type="number" id="max-price" placeholder="Max" min="0">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label for="rating-filter">Minimum Rating</label>
+                <select id="rating-filter">
+                    <option value="">Any Rating</option>
+                    <option value="4">4+ Stars</option>
+                    <option value="3">3+ Stars</option>
+                    <option value="2">2+ Stars</option>
+                    <option value="1">1+ Stars</option>
+                </select>
+            </div>
+
+            <button class="clear-filters" onclick="clearAllFilters()">Clear All</button>
+        </div>
+
+        <div class="product-count" id="product-count"></div>
+
+        <div class="product-grid" id="product-grid">
+            <!-- Products will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Admin Product Form (initially hidden) -->
+    <div class="container admin-section" id="admin-section" style="display: none;">
+        <h2>Add New Product</h2>
+        <form id="product-form">
+            <input type="text" id="product-name" placeholder="Product Name" required />
+            <input type="number" id="product-price" placeholder="Price" required />
+            <input type="text" id="product-category" placeholder="Category" required />
+            <input type="text" id="product-emoji" placeholder="Emoji or Image (📱, 💻, etc.)" />
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+   
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
